@@ -15,8 +15,8 @@ class TabLink {
       //console.log(this.cards)
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
-      this.cards = document.querySelector(`[data-tab='${this.tabData}']`);
-      console.log(this.cards)
+      this.cards = document.querySelector(`.card[data-tab='${this.tabData}']`);
+      this.cards.style.display = 'flex';
     }
     
 
@@ -44,11 +44,11 @@ selectTab() {
     cards.forEach(card => card.style.display = 'none');
     
     // Add a class of ".active-tab" to this.tabElement
-    this.tabElement.classList.toggle('active-tab');
+    this.tabElement.classList.add('active-tab');
     
     // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class. 
     //Just un-comment the code and study what is happening here.
-    this.cards.forEach(card => card.selectCard(TabCard));
+    this.cards.forEach(card => card.selectCard(this.TabCard));
   }
 }
 
